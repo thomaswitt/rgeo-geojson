@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require_relative "json_adapter"
+
 module RGeo
   module GeoJSON
     # This object encapsulates encoding and decoding settings (principally

@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require_relative "json_adapter"
+
 module RGeo
   # This module serves to provide handy methods when using GeoJSON. The methods
   # provided eases the passage between entities and GeoJSON String/Hash.
