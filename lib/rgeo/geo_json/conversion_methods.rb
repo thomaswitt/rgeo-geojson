@@ -12,7 +12,7 @@ module RGeo
 
     # Convert a geometry to a GeoJSON String
     def to_geojson
-      ::MultiJson.dump(as_geojson)
+      RGeo::GeoJSON::JsonAdapter.generate(as_geojson)
     end
     alias to_json to_geojson
   end
@@ -33,7 +33,7 @@ module RGeo
 
       # Convert a geometry to a GeoJSON String
       def to_geojson
-        ::MultiJson.dump(as_geojson)
+        RGeo::GeoJSON::JsonAdapter.generate(as_geojson)
       end
       alias to_json to_geojson
     end
