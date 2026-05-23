@@ -14,27 +14,25 @@ module RGeo
     #
     # `options` mirrors multi_json's own signature (positional hash with
     # default `{}`) and is forwarded unchanged, so callers can pass any
-    # adapter-supported option (e.g. `:symbolize_keys`) through.
+    # adapter-supported option (e.g. `:symbolize_names`) through.
     module JsonAdapter
       ADAPTER = defined?(::MultiJSON) ? ::MultiJSON : ::MultiJson
       private_constant :ADAPTER
 
-      module_function
-
       if ADAPTER.respond_to?(:generate) && ADAPTER.respond_to?(:parse)
-        def generate(object, options = {})
+        def self.generate(object, options = {})
           ADAPTER.generate(object, options)
         end
 
-        def parse(string, options = {})
+        def self.parse(string, options = {})
           ADAPTER.parse(string, options)
         end
       else
-        def generate(object, options = {})
+        def self.generate(object, options = {})
           ADAPTER.dump(object, options)
         end
 
-        def parse(string, options = {})
+        def self.parse(string, options = {})
           ADAPTER.load(string, options)
         end
       end
